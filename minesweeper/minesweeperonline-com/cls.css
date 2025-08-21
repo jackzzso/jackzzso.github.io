@@ -1,0 +1,29 @@
+body {
+	--fsAddBuffer: 22px;
+}
+[id='minesweeperonline-com_siderail_right_1'],
+[id='minesweeperonline-com_siderail_left'] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: calc(var(--height) + var(--fsAddBuffer));
+	height: calc(var(--height) + var(--fsAddBuffer));
+	width: 100%;
+}
+@media only screen and (min-width: 950px) {
+	[id='minesweeperonline-com_siderail_left'] {
+		--height: 600px;
+	}
+	[id='minesweeperonline-com_siderail_right_1'] {
+		--height: 600px;
+	}
+}
+@media only screen and (min-width: 1050px) {
+	[id='minesweeperonline-com_siderail_left'] {
+		--height: 600px;
+	}
+	[id='minesweeperonline-com_siderail_right_1'] {
+		--height: 600px;
+	}
+}
