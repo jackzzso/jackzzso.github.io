@@ -11,7 +11,7 @@
             background-color: #121212;
             color: #e0e0e0;
             font-family: 'Arial', sans-serif;
-            margin: 0;
+            margin: 1rem;
             padding: 0;
             display: flex;
             justify-content: center;
@@ -32,10 +32,10 @@
 
         .card-header {
             background-color: #181818;
-            border-bottom: 1px solid #333;
             text-align: center;
-            margin-top: 0;
+            margin: 0.5rem;
             padding: 1.5rem 2rem;
+            border-radius: 12px;
         }
 
         .card-header h1 {
@@ -43,15 +43,19 @@
             font-weight: 600;
             color: #f0f0f0;
             margin: 0;
+            padding: 0.5rem;
         }
 
         .card-header p {
             font-size: 1.1rem;
             color: #b0b0b0;
-            margin: 0.5rem 0 0 0;
+            margin: 0;
+            padding: 0;
         }
 
         .card-body {
+            margin: 0.5rem;
+            border-radius: 12px;
             padding: 2rem;
             background-color: #222;
         }
@@ -59,12 +63,15 @@
         .card-body p {
             font-size: 1.1rem;
             color: #d3d3d3;
+            margin: 0;
+            padding: 0.5rem 0;
         }
 
         .card-body h2 {
             font-size: 1.5rem;
             color: #e5e5e5;
-            margin-bottom: 1rem;
+            margin: 0;
+            padding: 0;
         }
 
         input,
@@ -101,11 +108,13 @@
             padding: 1rem;
             border-radius: 8px;
             display: none;
+            margin-bottom: 1rem;
         }
 
         #convertedUrl label {
             font-size: 1.1rem;
             color: #d3d3d3;
+            margin-bottom: 0.25rem;
         }
 
         #convertedUrl p {
@@ -139,12 +148,11 @@
         .converted-actions {
             display: flex;
             gap: 0.5rem;
-            margin-top: 0.75rem;
         }
 
         .converted-actions button {
             flex: 1;
-            padding: 0.65rem;
+            padding: 1rem;
         }
     </style>
 </head>
@@ -154,7 +162,7 @@
         <div class="card">
             <div class="card-header">
                 <h1>Microsoft VM Method</h1>
-                <p>Load an unlocked VM on a chromebook.</p>
+                <p>Load an unblocked VM on a chromebook.</p>
             </div>
             <div class="card-body">
                 <div class="mb-6">
@@ -186,12 +194,11 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="urlInput" class="block text-lg mb-2">Enter the URL to convert:</label>
-                    <input id="urlInput" type="text" placeholder="Enter URL here" />
-
                     <button onclick="convertUrl()">
                         Convert URL
                     </button>
+
+                    <input id="urlInput" type="text" placeholder="Enter the URL to convert here" />
                 </div>
 
                 <div id="convertedUrl" class="mt-6">
