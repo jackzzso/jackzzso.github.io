@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microsoft VM Method</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background-color: #1d1d1d;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 100%;
+            max-width: 650px;
+            padding: 2rem;
+        }
+
+        .card-header {
+            background-color: #181818;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            margin-top: 0;
+            padding: 1.5rem 2rem;
+        }
+
+        .card-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #f0f0f0;
+            margin: 0;
+        }
+
+        .card-header p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin: 0.5rem 0 0 0;
+        }
+
+        .card-body {
+            padding: 2rem;
+            background-color: #222;
+        }
+
+        .card-body p {
+            font-size: 1.1rem;
+            color: #d3d3d3;
+        }
+
+        .card-body h2 {
+            font-size: 1.5rem;
+            color: #e5e5e5;
+            margin-bottom: 1rem;
+        }
+
+        input,
+        button {
+            padding: 1rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background-color: #333;
+            color: #fff;
+            font-size: 1rem;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        button {
+            background-color: #444;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #convertedUrl {
+            background-color: #2b2b2b;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        #convertedUrl label {
+            font-size: 1.1rem;
+            color: #d3d3d3;
+        }
+
+        #convertedUrl p {
+            font-size: 1rem;
+            color: #a0a0a0;
+            word-wrap: break-word;
+        }
+
+        .code-block {
+            background-color: #2e2e2e;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: #e5e5e5;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .card-body > div {
+            margin-bottom: 0.25rem;
+        }
+
+        .min-h-screen {
+            padding: 0 !important;
+        }
+
+        .converted-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .converted-actions button {
+            flex: 1;
+            padding: 0.65rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>Microsoft VM Method</h1>
+                <p>Load an unlocked VM on a chromebook.</p>
+            </div>
+            <div class="card-body">
+                <div class="mb-6">
+                    <h2>Instructions:</h2>
+                    <p>
+                        1. Click on the "Go To Microsoft Exercise" button.
+                        <br>2. Click Sign in to launch VM mode OR Launch VM mode.
+                        <br>3. Login and complete the captcha.
+                        <br>4. Once you're on labondemand.com, click CTRL + L, then CTRL + C
+                        <br>5. Paste the URL into the converter below.
+                        <br>6. Enter the URL in output on the same or a new tab.
+                        <br>7. Use the password provided below to login.
+                        <br><br> Optionally, you can use the VPN provided below to bypass FortiGuard and go on any website.
+                    </p>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <button onclick="window.open('https://learn.microsoft.com/en-us/training/modules/implement-common-integration-features-finance-ops/10-exercise-1?source=learn&launch-lab=true', '_blank')"
+                        class="px-6 py-3 bg-transparent text-white border-2 border-gray-600 rounded-lg hover:bg-gray-600 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        Go to Microsoft Exercise
+                    </button>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button onclick="copyToClipboard()"
+                        class="px-6 py-3 bg-transparent text-white border-2 border-gray-600 rounded-lg hover:bg-gray-600 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        FortiGuard Bypass VPN
+                    </button>
+                </div>
+
+                <div class="mb-6">
+                    <label for="urlInput" class="block text-lg mb-2">Enter the URL to convert:</label>
+                    <input id="urlInput" type="text" placeholder="Enter URL here" />
+
+                    <button onclick="convertUrl()">
+                        Convert URL
+                    </button>
+                </div>
+
+                <div id="convertedUrl" class="mt-6">
+                    <label class="block text-lg mb-2">Converted URL:</label>
+                    <p id="outputUrl"></p>
+
+                    <div class="converted-actions">
+                        <button id="goConvertedBtn" onclick="goToConverted()" title="Open converted URL in a new tab">
+                            Go to Converted URL
+                        </button>
+                        <button id="copyConvertedBtn" onclick="copyConvertedUrl()" title="Copy converted URL">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <div class="code-block">
+                        <pre>login password: pass@word1</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastConvertedUrl = '';
+
+        function convertUrl() {
+            const inputUrl = document.getElementById('urlInput').value.trim();
+
+            const regex = /https:\/\/labclient\.labondemand\.com\/LabClient\/([a-f0-9\-]+)/;
+            const match = inputUrl.match(regex);
+
+            if (match) {
+                const id = match[1];
+                const convertedUrl = `https://labclient.labondemand.com/VirtualizationClient/${id}?vmOnly=1&titlebar=0`;
+                lastConvertedUrl = convertedUrl;
+
+                document.getElementById('convertedUrl').style.display = 'block';
+                document.getElementById('outputUrl').textContent = convertedUrl;
+
+
+                document.getElementById('goConvertedBtn').disabled = false;
+                document.getElementById('copyConvertedBtn').disabled = false;
+            } else {
+
+                lastConvertedUrl = '';
+                document.getElementById('convertedUrl').style.display = 'none';
+                document.getElementById('outputUrl').textContent = '';
+                alert('Invalid URL format.');
+            }
+        }
+
+        function goToConverted() {
+            if (!lastConvertedUrl) {
+                alert('No converted URL available. Convert a valid URL first.');
+                return;
+            }
+
+            window.open(lastConvertedUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        function copyConvertedUrl() {
+            if (!lastConvertedUrl) {
+                alert('No converted URL to copy.');
+                return;
+            }
+            navigator.clipboard.writeText(lastConvertedUrl).then(function () {
+                alert('Converted URL copied to clipboard!');
+            }).catch(function (error) {
+                alert('Failed to copy converted URL: ' + error);
+            });
+        }
+
+        function copyToClipboard() {
+            const url = "https://microsoftedge.microsoft.com/addons/detail/easyvpn/elgcnlcfjcejgfbbpmoinkmpiblagohh";
+
+            navigator.clipboard.writeText(url).then(function () {
+                alert("URL copied to clipboard!");
+            }).catch(function (error) {
+                alert("Failed to copy URL: " + error);
+            });
+        }
+    </script>
+</body>
+
+</html>
