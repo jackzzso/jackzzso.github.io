@@ -28,6 +28,16 @@
     MONO
   </div>
   <div class="footer">
-    V3.1.1
+    V3.0.0
   </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const version = urlParams.get('version');
+    const footerDiv = document.querySelector('.footer');
+    if (version) {
+      footerDiv.textContent = version;
+    } else {
+      footerDiv.textContent = "Invalid Version";
+    }
+  </script>
 </body>
